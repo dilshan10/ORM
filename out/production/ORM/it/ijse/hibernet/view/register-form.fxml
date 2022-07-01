@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.ijse.hibernet.controller.RegisterFormController">
+   <children>
+      <ImageView fitHeight="28.0" fitWidth="32.0" layoutX="14.0" layoutY="23.0" onMouseClicked="#navigate" pickOnBounds="true">
+         <image>
+            <Image url="@assert/home.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="212.0" layoutY="14.0" text="D24 HOSTEL" textFill="RED">
+         <font>
+            <Font name="System Bold Italic" size="30.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="64.0" prefHeight="2.0" prefWidth="573.0" />
+      <Label alignment="CENTER" layoutX="79.0" layoutY="77.0" prefHeight="17.0" prefWidth="96.0" text="Sudent ID :" />
+      <Label alignment="CENTER" layoutX="79.0" layoutY="134.0" prefHeight="17.0" prefWidth="96.0" text="Sudent Name :" />
+      <Label alignment="CENTER" layoutX="79.0" layoutY="192.0" prefHeight="17.0" prefWidth="96.0" text="Sudent Address :" />
+      <Label alignment="CENTER" layoutX="79.0" layoutY="245.0" prefHeight="17.0" prefWidth="96.0" text="Contact No :" />
+      <Label alignment="CENTER" layoutX="278.0" layoutY="300.0" prefHeight="17.0" prefWidth="96.0" text="Gender" />
+      <Label alignment="CENTER" layoutX="79.0" layoutY="300.0" prefHeight="17.0" prefWidth="96.0" text="Date Of Brith" />
+      <Button layoutX="164.0" layoutY="361.0" mnemonicParsing="false" onAction="#ClickOnNewStudentRegister" style="-fx-background-color: blue;" text="Register new Student" textFill="WHITE" />
+      <TextField fx:id="txtSID" layoutX="79.0" layoutY="94.0" prefHeight="25.0" prefWidth="443.0" promptText="S00-001" />
+      <TextField fx:id="txtSName" layoutX="79.0" layoutY="151.0" prefHeight="25.0" prefWidth="443.0" promptText="N.D Chathuranga Dilshan" />
+      <TextField fx:id="txtSAddress" layoutX="79.0" layoutY="210.0" prefHeight="25.0" prefWidth="443.0" promptText="Beruwala" />
+      <TextField fx:id="txtNumber" layoutX="79.0" layoutY="270.0" prefHeight="25.0" prefWidth="228.0" promptText="0754313114" />
+      <TextField fx:id="txtDOB" layoutX="79.0" layoutY="321.0" promptText="2001/10/25" />
+      <ComboBox fx:id="cmdGendr" layoutX="307.0" layoutY="321.0" prefWidth="150.0" />
+      <Button layoutX="310.0" layoutY="361.0" mnemonicParsing="false" onAction="#ClickOnStyudentList" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: blue;" text="Student List" textFill="WHITE" />
+   </children>
+</AnchorPane>

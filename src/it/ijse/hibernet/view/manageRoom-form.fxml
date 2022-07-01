@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.ijse.hibernet.controller.ManageRoomFormController">
+   <children>
+      <Label alignment="CENTER" layoutX="212.0" layoutY="6.0" text="D24 HOSTEL" textFill="RED">
+         <font>
+            <Font name="System Bold Italic" size="30.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="28.0" fitWidth="32.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#navigate" pickOnBounds="true">
+         <image>
+            <Image url="@assert/home.png" />
+         </image>
+      </ImageView>
+      <Separator layoutX="11.0" layoutY="50.0" prefHeight="3.0" prefWidth="579.0" />
+      <Button alignment="CENTER" layoutX="222.0" layoutY="252.0" mnemonicParsing="false" onAction="#ClickSaveOnAction" prefHeight="25.0" prefWidth="152.0" style="-fx-background-color: blue;" text="Save New Room" textFill="WHITE" />
+      <Button alignment="CENTER" layoutX="327.0" layoutY="315.0" mnemonicParsing="false" onAction="#ClickRoomListOnAction" prefHeight="25.0" prefWidth="152.0" style="-fx-background-color: blue;" text="Room List" textAlignment="CENTER" textFill="WHITE" />
+      <Button alignment="CENTER" layoutX="125.0" layoutY="315.0" mnemonicParsing="false" onAction="#ClickUpdateOrDeleteOnAction" prefHeight="25.0" prefWidth="152.0" style="-fx-background-color: blue;" text="Update Or Delete Room " textFill="WHITE" />
+      <Label alignment="CENTER" layoutX="285.0" layoutY="298.0" prefHeight="17.0" prefWidth="32.0" text="OR" />
+      <Separator layoutX="77.0" layoutY="308.0" prefWidth="200.0" />
+      <Separator layoutX="327.0" layoutY="305.0" prefWidth="200.0" />
+      <Label alignment="CENTER" layoutX="66.0" layoutY="86.0" text="Room Type ID" />
+      <Label alignment="CENTER" layoutX="66.0" layoutY="127.0" prefHeight="17.0" prefWidth="76.0" text="Type" />
+      <Label alignment="CENTER" layoutX="66.0" layoutY="164.0" prefHeight="17.0" prefWidth="76.0" text="Key Money" />
+      <Label alignment="CENTER" layoutX="66.0" layoutY="204.0" prefHeight="17.0" prefWidth="76.0" text="Rooms QTY" />
+      <TextField fx:id="txtRoomID" layoutX="151.0" layoutY="82.0" prefHeight="25.0" prefWidth="149.0" promptText="RM-0000" />
+      <TextField fx:id="txtRoomType" layoutX="151.0" layoutY="123.0" prefHeight="25.0" prefWidth="293.0" promptText="AC, NON AC, AC/FOOD, NON AC /FOOD" />
+      <TextField fx:id="txtKeyMoney" layoutX="151.0" layoutY="160.0" prefHeight="25.0" prefWidth="207.0" promptText="00.00" />
+      <TextField fx:id="txtRoomQty" layoutX="151.0" layoutY="200.0" prefHeight="25.0" prefWidth="142.0" promptText="00" />
+   </children>
+</AnchorPane>

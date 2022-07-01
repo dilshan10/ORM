@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.ijse.hibernet.controller.StudentListFormController">
+    <children>
+        <ImageView fitHeight="28.0" fitWidth="32.0" layoutX="14.0" layoutY="23.0" onMouseClicked="#navigate" pickOnBounds="true">
+            <image>
+                <Image url="@assert/home.png" />
+            </image>
+        </ImageView>
+        <Label alignment="CENTER" layoutX="212.0" layoutY="14.0" text="D24 HOSTEL" textFill="RED">
+            <font>
+                <Font name="System Bold Italic" size="30.0" />
+            </font>
+        </Label>
+        <Separator layoutX="14.0" layoutY="64.0" prefHeight="2.0" prefWidth="573.0" />
+      <TableView fx:id="tblStudent" layoutX="14.0" layoutY="86.0" prefHeight="261.0" prefWidth="573.0">
+        <columns>
+          <TableColumn fx:id="tblID" prefWidth="60.0" text="ID" />
+          <TableColumn fx:id="tblName" prefWidth="126.0" text="Name" />
+            <TableColumn fx:id="tblAddres" prefWidth="121.0" text="Address" />
+            <TableColumn fx:id="tblContactNu" prefWidth="98.0" text="Contact no" />
+            <TableColumn fx:id="tblDOB" prefWidth="101.0" text="DOB" />
+            <TableColumn fx:id="tblGender" prefWidth="66.0" text="Gender" />
+        </columns>
+      </TableView>
+      <Button layoutX="153.0" layoutY="361.0" mnemonicParsing="false" onAction="#clickOnUpdateDeletAction" prefHeight="25.0" prefWidth="295.0" style="-fx-background-color: blue;" text="Delete Or Update Student Details" textFill="WHITE" />
+    </children>
+
+</AnchorPane>

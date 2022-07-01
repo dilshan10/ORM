@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.ijse.hibernet.controller.TakeKeyMoneyFormController">
+    <children>
+        <Label alignment="CENTER" layoutX="212.0" layoutY="6.0" text="D24 HOSTEL" textFill="RED">
+            <font>
+                <Font name="System Bold Italic" size="30.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="28.0" fitWidth="32.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#navigate" pickOnBounds="true">
+            <image>
+                <Image url="@assert/home.png" />
+            </image>
+        </ImageView>
+        <Separator layoutX="11.0" layoutY="50.0" prefHeight="3.0" prefWidth="579.0" />
+      <TextField fx:id="txtREID" layoutX="143.0" layoutY="82.0" prefHeight="25.0" prefWidth="344.0" promptText="R00-001" />
+      <Button layoutX="216.0" layoutY="298.0" mnemonicParsing="false" onAction="#ClickAddReservationOnAction" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: blue;" text="Place New Reservation" textFill="WHITE" />
+      <Button layoutX="113.0" layoutY="355.0" mnemonicParsing="false" onAction="#ClickOnList" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: blue;" text="Reservation List" textFill="WHITE" />
+      <Button layoutX="317.0" layoutY="355.0" mnemonicParsing="false" onAction="#ClickOnUpdateDeleteAction" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: blue;" text="Update OR Delete " textFill="WHITE" />
+      <TextField fx:id="txtREDate" layoutX="143.0" layoutY="123.0" prefHeight="25.0" prefWidth="344.0" promptText="2022/07/01" />
+      <TextField fx:id="txtStatus" layoutX="143.0" layoutY="250.0" prefHeight="25.0" prefWidth="344.0" />
+      <Label alignment="CENTER" layoutX="32.0" layoutY="86.0" prefHeight="17.0" prefWidth="92.0" text="Reservation ID" />
+      <Label alignment="CENTER" layoutX="32.0" layoutY="127.0" prefHeight="17.0" prefWidth="92.0" text="Date" />
+      <Label alignment="CENTER" layoutX="32.0" layoutY="167.0" prefHeight="17.0" prefWidth="92.0" text="Student ID" />
+      <Label alignment="CENTER" layoutX="32.0" layoutY="211.0" prefHeight="17.0" prefWidth="92.0" text="Room Type ID" />
+      <Label alignment="CENTER" layoutX="32.0" layoutY="254.0" prefHeight="17.0" prefWidth="92.0" text="Statas" />
+      <Label layoutX="292.0" layoutY="359.0" text="OR" />
+      <Separator layoutX="42.0" layoutY="336.0" prefHeight="3.0" prefWidth="518.0" />
+      <TextField fx:id="txtSid" layoutX="143.0" layoutY="163.0" prefHeight="25.0" prefWidth="344.0" promptText="S00-001" />
+      <TextField fx:id="txtRid" layoutX="143.0" layoutY="207.0" prefHeight="25.0" prefWidth="344.0" promptText="RM-1324" />
+    </children>
+
+</AnchorPane>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.ijse.hibernet.controller.ReservationUpdateDeleteFormController">
+
+    <children>
+    <Label alignment="CENTER" layoutX="212.0" layoutY="6.0" text="D24 HOSTEL" textFill="RED">
+        <font>
+            <Font name="System Bold Italic" size="30.0" />
+        </font>
+    </Label>
+    <ImageView fitHeight="28.0" fitWidth="32.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#navigate" pickOnBounds="true">
+        <image>
+            <Image url="@assert/home.png" />
+        </image>
+    </ImageView>
+    <Separator layoutX="11.0" layoutY="50.0" prefHeight="3.0" prefWidth="579.0" />
+      <TextField fx:id="txtSearch" alignment="CENTER" layoutX="292.0" layoutY="68.0" prefHeight="25.0" prefWidth="216.0" promptText="Enter Reservation ID to Find" />
+      <TextField fx:id="txtreID" layoutX="138.0" layoutY="118.0" prefHeight="25.0" prefWidth="262.0" promptText="RM-001" />
+      <TextField fx:id="txtDate" layoutX="138.0" layoutY="163.0" prefHeight="25.0" prefWidth="262.0" promptText="2022/10/10" />
+      <TextField fx:id="txtsID" layoutX="138.0" layoutY="214.0" prefHeight="25.0" prefWidth="262.0" promptText="S00-001" />
+      <TextField fx:id="txtRid" layoutX="138.0" layoutY="257.0" prefHeight="25.0" prefWidth="262.0" promptText="RM-1324" />
+      <TextField fx:id="txtStatus" layoutX="138.0" layoutY="294.0" prefHeight="25.0" prefWidth="262.0" />
+      <Button layoutX="433.0" layoutY="163.0" mnemonicParsing="false" onAction="#ClickUpdateonAction" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: blue;" text="Update" textFill="WHITE" />
+      <Button layoutX="434.0" layoutY="214.0" mnemonicParsing="false" onAction="#ClickOnDeleteOnAction" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: red;" text="Delete" textFill="WHITE" />
+      <Button layoutX="256.0" layoutY="340.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: yellow;" text="Back" />
+      <Button layoutX="520.0" layoutY="68.0" mnemonicParsing="false" onAction="#ClickSearchOnAction" style="-fx-background-color: pink;" text="Search" />
+      <Label alignment="CENTER" layoutX="21.0" layoutY="122.0" prefHeight="17.0" prefWidth="89.0" text="Reservation ID" />
+      <Label alignment="CENTER" layoutX="21.0" layoutY="167.0" prefHeight="17.0" prefWidth="99.0" text="Reservation Date" />
+      <Label alignment="CENTER" layoutX="34.0" layoutY="218.0" prefHeight="17.0" prefWidth="64.0" text="Student ID" />
+      <Label alignment="CENTER" layoutX="21.0" layoutY="261.0" prefHeight="17.0" prefWidth="89.0" text="Room Type ID" />
+      <Label alignment="CENTER" layoutX="34.0" layoutY="298.0" prefHeight="17.0" prefWidth="64.0" text="Ststus" />
+      <Label alignment="CENTER" layoutX="464.0" layoutY="192.0" prefHeight="17.0" prefWidth="64.0" text="OR" />
+    </children>
+
+</AnchorPane>

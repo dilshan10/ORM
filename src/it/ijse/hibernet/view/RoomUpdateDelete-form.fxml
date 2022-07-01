@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.ijse.hibernet.controller.RoomUpdateDeleteFormController">
+    <children>
+        <Label alignment="CENTER" layoutX="212.0" layoutY="6.0" text="D24 HOSTEL" textFill="RED">
+            <font>
+                <Font name="System Bold Italic" size="30.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="28.0" fitWidth="32.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#navigate" pickOnBounds="true">
+            <image>
+                <Image url="@assert/home.png" />
+            </image>
+        </ImageView>
+        <Separator layoutX="11.0" layoutY="50.0" prefHeight="3.0" prefWidth="579.0" />
+      <TextField fx:id="txtSearch" alignment="CENTER" layoutX="236.0" layoutY="71.0" prefHeight="25.0" prefWidth="272.0" promptText="Enter The Room Type Id To Find " />
+      <Button layoutX="520.0" layoutY="71.0" mnemonicParsing="false" onAction="#ClickSearchOnAction" style="-fx-background-color: pink;" text="Search">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" layoutX="55.0" layoutY="116.0" prefHeight="17.0" prefWidth="83.0" text="Room-Type-ID" />
+      <Label alignment="CENTER" layoutX="55.0" layoutY="165.0" prefHeight="17.0" prefWidth="83.0" text="Type" />
+      <Label alignment="CENTER" layoutX="55.0" layoutY="219.0" prefHeight="17.0" prefWidth="83.0" text="Key Money" />
+      <Label alignment="CENTER" layoutX="55.0" layoutY="269.0" prefHeight="17.0" prefWidth="83.0" text="Room QTY" />
+      <TextField fx:id="txtRoomType" layoutX="55.0" layoutY="188.0" prefHeight="25.0" prefWidth="314.0" />
+      <TextField fx:id="txtkeyMoney" layoutX="55.0" layoutY="236.0" prefHeight="25.0" prefWidth="314.0" />
+      <TextField fx:id="txtRoomQty" layoutX="55.0" layoutY="286.0" prefHeight="25.0" prefWidth="314.0" />
+      <Label fx:id="lblRoomId" layoutX="55.0" layoutY="133.0" prefHeight="25.0" prefWidth="314.0" />
+      <Button layoutX="415.0" layoutY="265.0" mnemonicParsing="false" onAction="#ClickOnDeleteAction" prefHeight="25.0" prefWidth="157.0" style="-fx-background-color: red;" text="Delete" textFill="WHITE" />
+      <Button layoutX="415.0" layoutY="207.0" mnemonicParsing="false" onAction="#ClickOnUpdateAction" prefHeight="25.0" prefWidth="157.0" style="-fx-background-color: blue;" text="Update" textFill="WHITE" />
+      <Button layoutX="222.0" layoutY="338.0" mnemonicParsing="false" onAction="#ClickOnBackAction" prefHeight="25.0" prefWidth="157.0" style="-fx-background-color: yellow;" text="Back" />
+      <Label alignment="CENTER" layoutX="474.0" layoutY="240.0" prefHeight="17.0" prefWidth="38.0" text="OR" />
+      <Separator layoutX="426.0" layoutY="247.0" prefHeight="3.0" prefWidth="51.0" />
+      <Separator layoutX="508.0" layoutY="247.0" prefHeight="3.0" prefWidth="51.0" />
+    </children>
+
+</AnchorPane>
