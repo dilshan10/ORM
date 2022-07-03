@@ -1,6 +1,8 @@
 package it.ijse.hibernet.entty;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -21,4 +23,13 @@ public class Room implements SuperEntity {
 
     @OneToMany(mappedBy = "room")
     private List<Reservation> reservations = new ArrayList<>();
+
+
+
+    public Room(String room_type_ID, String type, double keyMoney, int QTY) {
+        this.room_type_ID = room_type_ID;
+        this.type = type;
+        this.keyMoney = keyMoney;
+        this.QTY = QTY;
+    }
 }

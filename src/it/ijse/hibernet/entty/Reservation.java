@@ -1,11 +1,11 @@
 package it.ijse.hibernet.entty;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
-
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,11 +19,19 @@ public class Reservation implements SuperEntity {
     private String status;
 
     @ManyToOne
-    @JoinColumn(name = "student_id",referencedColumnName = "student_ID",insertable = false,updatable = false)
+    @JoinColumn
     private Student student;
 
     @ManyToOne
-    @JoinColumn(name = "room_type_id",referencedColumnName = "room_type_id",insertable = false,updatable = false)
+    @JoinColumn
     private Room room;
 
+
+    public Reservation(String res_id, String date, String student_id, String room_type_id, String status) {
+        this.res_id = res_id;
+        this.DATE =date;
+        this.student_id = student_id;
+        this.room_type_id = room_type_id;
+        this.status = status;
+    }
 }
