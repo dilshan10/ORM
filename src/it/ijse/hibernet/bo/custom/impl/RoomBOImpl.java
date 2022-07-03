@@ -7,6 +7,7 @@ import it.ijse.hibernet.dao.DAOType;
 import it.ijse.hibernet.dao.custom.impl.RoomDAOImpl;
 import it.ijse.hibernet.dto.RoomDTO;
 import it.ijse.hibernet.entty.Room;
+import javafx.collections.ObservableList;
 
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class RoomBOImpl implements RoomBO {
     }
 
     @Override
-    public List<Room> getID() throws Exception {
+    public ObservableList<Room> getID() throws Exception {
         return roomDAO.getID();
     }
 }

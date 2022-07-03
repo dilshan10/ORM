@@ -39,21 +39,7 @@ public class TakeKeyMoneyFormController {
     public TextField txtRid;
 
     ReservationBOImpl reservationBO = BOFactory.getInstance().getBO(BOType.RESERVATION);
-    StudentBOImpl studentBO = BOFactory.getInstance().getBO(BOType.STUDENT);
-    RoomBOImpl roomBO = BOFactory.getInstance().getBO(BOType.ROOM);
 
-    public void initialize() throws Exception {
-       // setRID();
-       // setSID();
-     }
-     public void setSID() throws Exception {
-         List<Student> list = studentBO.getID();
-         cmdSID.setItems((ObservableList) list);
-     }
-     public void setRID() throws Exception {
-         List<Room> list = roomBO.getID();
-         cmdRid.setItems((ObservableList) list);
-     }
 
     public void navigate(MouseEvent mouseEvent) throws IOException {
         Parent root= FXMLLoader.load(this.getClass().getResource("../view/main-form.fxml"));
@@ -65,7 +51,7 @@ public class TakeKeyMoneyFormController {
 
     public void ClickAddReservationOnAction(ActionEvent actionEvent) throws ParseException {
         String Rid = txtREID.getText();
-        Date date = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(txtREDate.getText());
+        String date = txtREDate.getText();
         String sid = txtSid.getText();
         String rid = txtRid.getText();
         String ststus = txtStatus.getText();

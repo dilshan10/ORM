@@ -5,6 +5,8 @@ import it.ijse.hibernet.entty.Reservation;
 import it.ijse.hibernet.entty.Student;
 import it.ijse.hibernet.entty.User;
 import it.ijse.hibernet.util.FactoryConfiguration;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -58,12 +60,12 @@ public class UserDAOImpl implements UserDAO {
         return user;
     }
 
-    public List<User> findAll() throws Exception {
+    public ObservableList<User> findAll() throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction=session.beginTransaction();
 
         Query query = session.createSQLQuery("SELECT * FROM user");
-        List<User> list = query.list();
+        ObservableList<User> list = FXCollections.observableArrayList(query.list());
 
         transaction.commit();
         session.close();

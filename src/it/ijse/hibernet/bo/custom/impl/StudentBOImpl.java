@@ -7,6 +7,7 @@ import it.ijse.hibernet.dao.DAOType;
 import it.ijse.hibernet.dao.custom.impl.StudentDAOImpl;
 import it.ijse.hibernet.dto.StudentDTO;
 import it.ijse.hibernet.entty.Student;
+import javafx.collections.ObservableList;
 
 import java.util.List;
 
@@ -54,7 +55,7 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
-    public List<Student> getID() throws Exception {
+    public ObservableList<Student> getID() throws Exception {
         return studentDAO.getID();
     }
 }

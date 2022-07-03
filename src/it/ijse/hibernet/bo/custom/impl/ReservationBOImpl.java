@@ -8,6 +8,7 @@ import it.ijse.hibernet.dao.custom.impl.ReservationDAOImpl;
 import it.ijse.hibernet.dto.ReservationDTO;
 import it.ijse.hibernet.entty.Reservation;
 import it.ijse.hibernet.entty.Room;
+import javafx.collections.ObservableList;
 
 import java.util.List;
 
@@ -48,7 +49,7 @@ public class ReservationBOImpl implements ReservationBO {
     }
 
     @Override
-    public List<Reservation> findAll() throws Exception {
+    public ObservableList<Reservation> findAll() throws Exception {
         return reservationDAO.findAll();
     }
 }

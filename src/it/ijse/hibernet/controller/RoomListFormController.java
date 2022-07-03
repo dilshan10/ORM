@@ -4,6 +4,7 @@ import it.ijse.hibernet.bo.BOFactory;
 import it.ijse.hibernet.bo.BOType;
 import it.ijse.hibernet.bo.custom.impl.RoomBOImpl;
 import it.ijse.hibernet.dto.RoomDTO;
+import it.ijse.hibernet.entty.Room;
 import it.ijse.hibernet.entty.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -20,22 +21,22 @@ import java.io.IOException;
 
 public class RoomListFormController {
     public AnchorPane root;
-    public TableView tblRoom;
+    public TableView<Room>tblRoom;
     public TableColumn tblRoomTypeID;
     public TableColumn tblRoomType;
     public TableColumn tblKeyMoney;
     public TableColumn tblRoomQTY;
 
     RoomBOImpl roomBO = BOFactory.getInstance().getBO(BOType.ROOM);
-    RoomDTO roomDTO = new RoomDTO();
 
     public void initialize() throws Exception {
-        tblRoomTypeID.setCellValueFactory(new PropertyValueFactory<Student, Long>(roomDTO.getRoom_type_ID()));
+        tblRoom.getItems().addAll(roomBO.findAll());
+        tblRoomTypeID.setCellValueFactory(new PropertyValueFactory<Student, Long>("room_type_ID"));
         tblRoomType.setCellValueFactory(new PropertyValueFactory<Student, Long>("type"));
         tblKeyMoney.setCellValueFactory(new PropertyValueFactory<Student, Long>("keyMoney"));
         tblRoomQTY.setCellValueFactory(new PropertyValueFactory<Student, Long>("QTY"));
 
-        tblRoom.getItems().addAll(roomBO.findAll());
+
     }
 
     public void navigate(MouseEvent mouseEvent) throws IOException {

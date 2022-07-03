@@ -5,6 +5,8 @@ import it.ijse.hibernet.entty.Reservation;
 import it.ijse.hibernet.entty.Room;
 import it.ijse.hibernet.entty.Student;
 import it.ijse.hibernet.util.FactoryConfiguration;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -70,12 +72,12 @@ public class RoomDAOImpl implements RoomDAO {
         return list;
     }
 
-    public List<Room> getID() throws Exception {
+    public ObservableList<Room> getID() throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction=session.beginTransaction();
 
         Query query = session.createSQLQuery("SELECT room_type_ID FROM room");
-        List<Room> list = query.list();
+        ObservableList<Room> list = FXCollections.observableArrayList(query.list());
 
         transaction.commit();
         session.close();

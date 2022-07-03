@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class ReservationDTO {
     private String res_id;
-    private Date DATE;
+    private String DATE;
     private String student_id;
     private String room_type_id;
     private String status;
@@ -12,7 +12,7 @@ public class ReservationDTO {
     public ReservationDTO() {
     }
 
-    public ReservationDTO(String res_id, Date DATE, String student_id, String room_type_id, String status) {
+    public ReservationDTO(String res_id, String DATE, String student_id, String room_type_id, String status) {
         this.res_id = res_id;
         this.DATE = DATE;
         this.student_id = student_id;
@@ -28,11 +28,11 @@ public class ReservationDTO {
         this.res_id = res_id;
     }
 
-    public Date getDATE() {
+    public String getDATE() {
         return DATE;
     }
 
-    public void setDATE(Date DATE) {
+    public void setDATE(String DATE) {
         this.DATE = DATE;
     }
 
@@ -64,7 +64,7 @@ public class ReservationDTO {
     public String toString() {
         return "ReservationDTO{" +
                 "res_id='" + res_id + '\'' +
-                ", DATE=" + DATE +
+                ", DATE='" + DATE + '\'' +
                 ", student_id='" + student_id + '\'' +
                 ", room_type_id='" + room_type_id + '\'' +
                 ", status='" + status + '\'' +

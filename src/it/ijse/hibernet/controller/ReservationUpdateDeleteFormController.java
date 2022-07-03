@@ -41,7 +41,7 @@ public class ReservationUpdateDeleteFormController {
 
     public void ClickUpdateonAction(ActionEvent actionEvent) throws ParseException {
         String Rid = txtreID.getText();
-        Date date = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(txtDate.getText());
+        String date = txtDate.getText();
         String sid = txtsID.getText();
         String rid = txtRid.getText();
         String ststus = txtStatus.getText();
@@ -49,7 +49,7 @@ public class ReservationUpdateDeleteFormController {
         try {
             if (reservationBO.update(new ReservationDTO(Rid,date,sid,rid,ststus))){
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved.!").show();
-                //clearFields();
+                clearFields();
             }else {
                 new Alert(Alert.AlertType.ERROR, "Something Happened").show();
             }
@@ -59,6 +59,9 @@ public class ReservationUpdateDeleteFormController {
         }
     }
 
+    private void clearFields() {
+    }
+
     public void ClickOnDeleteOnAction(ActionEvent actionEvent) throws Exception {
         reservationBO.delete(txtSearch.getText());
     }
@@ -66,7 +69,7 @@ public class ReservationUpdateDeleteFormController {
     public void ClickSearchOnAction(ActionEvent actionEvent) throws Exception {
         Reservation reservation = reservationBO.find(txtSearch.getText());
         txtreID.setText(reservation.getRes_id());
-        txtDate.setText(String.valueOf(reservation.getDATE()));
+        txtDate.setText(reservation.getDATE());
         txtsID.setText(reservation.getStudent_id());
         txtRid.setText(reservation.getRoom_type_id());
         txtStatus.setText(reservation.getStatus());

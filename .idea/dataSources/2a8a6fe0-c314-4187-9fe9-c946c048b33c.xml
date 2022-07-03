@@ -1125,7 +1125,7 @@
     </column>
     <column id="284" parent="279" name="DATE">
       <Position>2</Position>
-      <DataType>datetime(6)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="285" parent="279" name="room_type_id">

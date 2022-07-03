@@ -4,6 +4,7 @@ import it.ijse.hibernet.dao.custom.StudentDAO;
 import it.ijse.hibernet.entty.Reservation;
 import it.ijse.hibernet.entty.Student;
 import it.ijse.hibernet.util.FactoryConfiguration;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -70,12 +71,12 @@ public class StudentDAOImpl implements StudentDAO {
         return list;
     }
 
-    public List<Student> getID() throws Exception{
+    public ObservableList<Student> getID() throws Exception{
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction=session.beginTransaction();
 
         Query query = session.createSQLQuery("SELECT student_ID FROM student");
-        List<Student> list = query.list();
+        ObservableList<Student> list = FXCollections.observableArrayList(query.list());
 
         transaction.commit();
         session.close();

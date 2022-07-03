@@ -24,13 +24,13 @@
         </image>
     </ImageView>
     <Separator layoutX="11.0" layoutY="50.0" prefHeight="3.0" prefWidth="579.0" />
-      <TableView layoutX="30.0" layoutY="74.0" prefHeight="272.0" prefWidth="549.0">
+      <TableView fx:id="tblReservation" layoutX="30.0" layoutY="74.0" prefHeight="272.0" prefWidth="549.0">
         <columns>
-          <TableColumn text="reser ID" />
-          <TableColumn prefWidth="117.0" text="Date" />
-            <TableColumn prefWidth="113.0" text="Student ID" />
-            <TableColumn prefWidth="130.0" text="Room Type ID" />
-            <TableColumn prefWidth="108.0" text="Status" />
+          <TableColumn fx:id="tblRId" text="reser ID" />
+          <TableColumn fx:id="tblRDate" prefWidth="117.0" text="Date" />
+            <TableColumn fx:id="tblStudentId" prefWidth="113.0" text="Student ID" />
+            <TableColumn fx:id="tblRoomTypeId" prefWidth="130.0" text="Room Type ID" />
+            <TableColumn fx:id="tblStatus" prefWidth="108.0" text="Status" />
         </columns>
       </TableView>
       <Button layoutX="252.0" layoutY="361.0" mnemonicParsing="false" onAction="#ClickBackOnAction" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: yellow;" text="Back" />

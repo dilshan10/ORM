@@ -4,6 +4,8 @@ import it.ijse.hibernet.dao.custom.ReservationDAO;
 import it.ijse.hibernet.entty.Reservation;
 import it.ijse.hibernet.entty.Student;
 import it.ijse.hibernet.util.FactoryConfiguration;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -56,12 +58,12 @@ public class ReservationDAOImpl implements ReservationDAO {
         return reservation;
     }
 
-    public List<Reservation> findAll() throws Exception {
+    public ObservableList<Reservation> findAll() throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction=session.beginTransaction();
 
         Query query = session.createSQLQuery("SELECT * FROM reservation");
-        List<Reservation> list = query.list();
+        ObservableList<Reservation> list = FXCollections.observableArrayList(query.list());
 
         transaction.commit();
         session.close();

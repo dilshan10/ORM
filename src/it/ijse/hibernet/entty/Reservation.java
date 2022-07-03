@@ -20,7 +20,15 @@ public class Reservation implements SuperEntity {
     @JoinColumn(name = "room_type_id",referencedColumnName = "room_type_id",insertable = false,updatable = false)
     private Room room;
 
-    public Reservation(String res_id, Date date, String student_id, String room_type_id, String status) {
+    public Reservation() {
+    }
+
+    public Reservation(String res_id, String date, String student_id, String room_type_id, String status) {
+        this.res_id = res_id;
+        this.DATE =date;
+        this.student_id = student_id;
+        this.room_type_id = room_type_id;
+        this.status = status;
     }
 
     public Reservation(String res_id, String DATE, String student_id, String room_type_id, String status, Student student, Room room) {
@@ -93,7 +101,7 @@ public class Reservation implements SuperEntity {
     public String toString() {
         return "Reservation{" +
                 "res_id='" + res_id + '\'' +
-                ", DATE=" + DATE +
+                ", DATE='" + DATE + '\'' +
                 ", student_id='" + student_id + '\'' +
                 ", room_type_id='" + room_type_id + '\'' +
                 ", status='" + status + '\'' +
