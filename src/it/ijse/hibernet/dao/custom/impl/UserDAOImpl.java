@@ -71,4 +71,9 @@ public class UserDAOImpl implements UserDAO {
         session.close();
         return list;
     }
+
+    @Override
+    public String IdGenerator() {
+        return null;
+    }
 }

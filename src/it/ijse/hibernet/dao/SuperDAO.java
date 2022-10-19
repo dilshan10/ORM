@@ -14,4 +14,6 @@ public interface SuperDAO<Entity extends SuperEntity, ID> {
     public Entity find(ID id) throws Exception;
 
     public List<Entity> findAll() throws Exception;
+
+    public String IdGenerator();
 }

@@ -71,6 +71,11 @@ public class StudentDAOImpl implements StudentDAO {
         return list;
     }
 
+    @Override
+    public String IdGenerator() {
+        return null;
+    }
+
     public ObservableList<Student> getID() throws Exception{
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction=session.beginTransaction();

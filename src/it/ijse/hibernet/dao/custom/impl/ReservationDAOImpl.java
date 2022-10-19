@@ -69,4 +69,12 @@ public class ReservationDAOImpl implements ReservationDAO {
         session.close();
         return list;
     }
+    public String IdGenerator(){
+        return null;
+    }
+
+    public ObservableList getAllStudentID(){
+        return null;
+    }
+
 }

@@ -1,5 +1,6 @@
 package it.ijse.hibernet.controller;
 
+import it.ijse.hibernet.AppInitializer;
 import it.ijse.hibernet.bo.BOFactory;
 import it.ijse.hibernet.bo.BOType;
 import it.ijse.hibernet.bo.custom.impl.ReservationBOImpl;
@@ -17,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -30,15 +32,19 @@ import java.util.List;
 
 public class TakeKeyMoneyFormController {
     public AnchorPane root;
-    public TextField txtREID;
     public TextField txtREDate;
     public TextField txtStatus;
-    public ComboBox cmdSID;
-    public ComboBox cmdRid;
     public TextField txtSid;
     public TextField txtRid;
+    public ComboBox cmdSID;
+    public ComboBox cmdRid;
+    public Label txtREID;
 
     ReservationBOImpl reservationBO = BOFactory.getInstance().getBO(BOType.RESERVATION);
+
+    public void initialize(){
+
+    }
 
 
     public void navigate(MouseEvent mouseEvent) throws IOException {

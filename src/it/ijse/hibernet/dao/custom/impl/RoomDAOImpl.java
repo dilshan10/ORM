@@ -72,6 +72,11 @@ public class RoomDAOImpl implements RoomDAO {
         return list;
     }
 
+    @Override
+    public String IdGenerator() {
+        return null;
+    }
+
     public ObservableList<Room> getID() throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction=session.beginTransaction();
