@@ -31,6 +31,8 @@ public class ReservationUpdateDeleteFormController {
 
     ReservationBOImpl reservationBO = BOFactory.getInstance().getBO(BOType.RESERVATION);
 
+
+
     public void navigate(MouseEvent mouseEvent) throws IOException {
         Parent root= FXMLLoader.load(this.getClass().getResource("../view/main-form.fxml"));
         Scene scene = new Scene(root);

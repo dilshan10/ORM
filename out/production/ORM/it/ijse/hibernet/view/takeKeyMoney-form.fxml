@@ -38,8 +38,8 @@
       <ComboBox fx:id="cmdSID" layoutX="143.0" layoutY="163.0" prefWidth="150.0" />
       <ComboBox fx:id="cmdRid" layoutX="143.0" layoutY="207.0" prefWidth="150.0" />
       <Label fx:id="txtREID" layoutX="143.0" layoutY="82.0" prefHeight="25.0" prefWidth="150.0" />
-      <Label layoutX="317.0" layoutY="82.0" prefHeight="25.0" prefWidth="92.0" text="Available Room:" />
-      <Label fx:id="lblQty" layoutX="409.0" layoutY="82.0" prefHeight="25.0" prefWidth="70.0" />
+      <Label layoutX="356.0" layoutY="207.0" prefHeight="25.0" prefWidth="92.0" text="Available Room:" />
+      <Label fx:id="lblQty" layoutX="462.0" layoutY="207.0" prefHeight="25.0" prefWidth="70.0" />
     </children>
 
 </AnchorPane>

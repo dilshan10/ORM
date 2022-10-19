@@ -54,4 +54,11 @@ public class RoomBOImpl implements RoomBO {
     public ObservableList<Room> getID() throws Exception {
         return roomDAO.getID();
     }
+
+    @Override
+    public String IdGenerator() {
+        return roomDAO.IdGenerator();
+    }
+
+
 }

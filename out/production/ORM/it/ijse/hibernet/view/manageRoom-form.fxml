@@ -32,7 +32,7 @@
       <Label alignment="CENTER" layoutX="66.0" layoutY="127.0" prefHeight="17.0" prefWidth="76.0" text="Type" />
       <Label alignment="CENTER" layoutX="66.0" layoutY="164.0" prefHeight="17.0" prefWidth="76.0" text="Key Money" />
       <Label alignment="CENTER" layoutX="66.0" layoutY="204.0" prefHeight="17.0" prefWidth="76.0" text="Rooms QTY" />
-      <TextField fx:id="txtRoomID" layoutX="151.0" layoutY="82.0" prefHeight="25.0" prefWidth="149.0" promptText="RM-0000" />
+      <TextField fx:id="txtRoomID" layoutX="151.0" layoutY="82.0" prefHeight="25.0" prefWidth="149.0" promptText="RM00-000" />
       <TextField fx:id="txtRoomType" layoutX="151.0" layoutY="123.0" prefHeight="25.0" prefWidth="293.0" promptText="AC, NON AC, AC/FOOD, NON AC /FOOD" />
       <TextField fx:id="txtKeyMoney" layoutX="151.0" layoutY="160.0" prefHeight="25.0" prefWidth="207.0" promptText="00.00" />
       <TextField fx:id="txtRoomQty" layoutX="151.0" layoutY="200.0" prefHeight="25.0" prefWidth="142.0" promptText="00" />

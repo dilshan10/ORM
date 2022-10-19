@@ -61,7 +61,7 @@ public class ReservationBOImpl implements ReservationBO {
         return reservationDAO.IdGenerator();
     }
 
-    public String setAvailableByID(String id){
+    public Integer setAvailableByID(String id){
         return reservationDAO.setAvailableByID(id);
     }
 }

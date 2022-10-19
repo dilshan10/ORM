@@ -29,6 +29,14 @@ public class ManageRoomFormController {
 
     RoomBOImpl roomBO = BOFactory.getInstance().getBO(BOType.ROOM);
 
+    public void initialize(){
+        setNewId();
+    }
+
+    public void setNewId(){
+        txtRoomID.setText(roomBO.IdGenerator());
+    }
+
     public void navigate(MouseEvent mouseEvent) throws IOException {
         Parent root= FXMLLoader.load(this.getClass().getResource("../view/main-form.fxml"));
         Scene scene = new Scene(root);

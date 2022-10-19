@@ -105,5 +105,15 @@ public class ReservationDAOImpl implements ReservationDAO {
         return list;
     }
 
+    public Integer setAvailableByID(String Id){
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
 
+        Room room = session.get(Room.class, Id);
+
+        transaction.commit();
+        session.close();
+
+        return room.getQTY();
+    }
 }

@@ -24,5 +24,5 @@ public interface ReservationBO extends SuperBO {
 
     public String IdGenerator();
 
-    public String setAvailableByID(String id);
+    public Integer setAvailableByID(String id);
 }

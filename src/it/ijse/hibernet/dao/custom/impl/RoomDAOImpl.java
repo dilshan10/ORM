@@ -74,7 +74,7 @@ public class RoomDAOImpl implements RoomDAO {
 
     @Override
     public String IdGenerator() {
-        return null;
+        return "RM00-001";
     }
 
     public ObservableList<Room> getID() throws Exception {

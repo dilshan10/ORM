@@ -54,9 +54,9 @@ public class TakeKeyMoneyFormController {
     }
 
     public void setAvaQty(){
-        String id = txtREID.getText();
-        String qty = reservationBO.setAvailableByID(id);
-        lblQty.setText(qty);
+        //String id = txtREID.getText();
+        //Integer qty = reservationBO.setAvailableByID(id);
+        lblQty.setText(String.valueOf(10));
     }
 
     public void navigate(MouseEvent mouseEvent) throws IOException {

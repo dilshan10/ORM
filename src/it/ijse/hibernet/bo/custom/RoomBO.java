@@ -18,5 +18,7 @@ public interface RoomBO extends SuperBO {
 
     public List<Room> findAll() throws Exception;
 
-    public List<Room> getID() throws Exception ;
+    public List<Room> getID() throws Exception;
+
+    public String IdGenerator();
 }
