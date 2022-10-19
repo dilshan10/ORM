@@ -74,7 +74,23 @@ public class RoomDAOImpl implements RoomDAO {
 
     @Override
     public String IdGenerator() {
-        return "RM00-001";
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("SELECT max (room_type_ID) FROM Room");
+        List list = query.list();
+
+        transaction.commit();
+        session.close();
+
+        if (list.get(0) == null){
+            return "RM00-001";
+        }else {
+            String id = String.valueOf(list.get(0));
+            Long resID = Long.parseLong(id.substring(4,id.length()));
+            resID++;
+            return "RM00-"+String.format("%03d", resID);
+        }
     }
 
     public ObservableList<Room> getID() throws Exception {

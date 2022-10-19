@@ -76,20 +76,19 @@ public class ReservationDAOImpl implements ReservationDAO {
         Transaction transaction = session.beginTransaction();
 
         Query query = session.createQuery("SELECT max (res_id) FROM Reservation");
-        List list = query.list();
+        List list1 = query.list();
 
         transaction.commit();
         session.close();
 
-        if (list.get(0) == null){
+        if (list1.get(0) == null){
             return "R00-001";
         }else {
-         String id = String.valueOf(list.get(0));
+         String id = String.valueOf(list1.get(0));
              Long resID = Long.parseLong(id.substring(4,id.length()));
              resID++;
              return "R00-"+String.format("%03d", resID);
         }
-
     }
 
     public ObservableList getAllStudentID(){

@@ -35,8 +35,6 @@ public class RoomListFormController {
         tblRoomType.setCellValueFactory(new PropertyValueFactory<Student, Long>("type"));
         tblKeyMoney.setCellValueFactory(new PropertyValueFactory<Student, Long>("keyMoney"));
         tblRoomQTY.setCellValueFactory(new PropertyValueFactory<Student, Long>("QTY"));
-
-
     }
 
     public void navigate(MouseEvent mouseEvent) throws IOException {
