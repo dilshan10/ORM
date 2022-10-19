@@ -52,4 +52,16 @@ public class ReservationBOImpl implements ReservationBO {
     public ObservableList<Reservation> findAll() throws Exception {
         return reservationDAO.findAll();
     }
+
+    public ObservableList getAllStudentID(){
+        return reservationDAO.getAllStudentID();
+    }
+
+    public String IdGenerator(){
+        return reservationDAO.IdGenerator();
+    }
+
+    public String setAvailableByID(String id){
+        return reservationDAO.setAvailableByID(id);
+    }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
@@ -22,21 +23,23 @@
             </image>
         </ImageView>
         <Separator layoutX="11.0" layoutY="50.0" prefHeight="3.0" prefWidth="579.0" />
-      <TextField fx:id="txtREID" layoutX="143.0" layoutY="82.0" prefHeight="25.0" prefWidth="344.0" promptText="R00-001" />
       <Button layoutX="216.0" layoutY="298.0" mnemonicParsing="false" onAction="#ClickAddReservationOnAction" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: blue;" text="Place New Reservation" textFill="WHITE" />
       <Button layoutX="113.0" layoutY="355.0" mnemonicParsing="false" onAction="#ClickOnList" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: blue;" text="Reservation List" textFill="WHITE" />
       <Button layoutX="317.0" layoutY="355.0" mnemonicParsing="false" onAction="#ClickOnUpdateDeleteAction" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: blue;" text="Update OR Delete " textFill="WHITE" />
-      <TextField fx:id="txtREDate" layoutX="143.0" layoutY="123.0" prefHeight="25.0" prefWidth="344.0" promptText="2022/07/01" />
+      <TextField fx:id="txtREDate" layoutX="143.0" layoutY="123.0" prefHeight="25.0" prefWidth="150.0" promptText="2022/07/01" />
       <TextField fx:id="txtStatus" layoutX="143.0" layoutY="250.0" prefHeight="25.0" prefWidth="344.0" />
-      <Label alignment="CENTER" layoutX="32.0" layoutY="86.0" prefHeight="17.0" prefWidth="92.0" text="Reservation ID" />
-      <Label alignment="CENTER" layoutX="32.0" layoutY="127.0" prefHeight="17.0" prefWidth="92.0" text="Date" />
-      <Label alignment="CENTER" layoutX="32.0" layoutY="167.0" prefHeight="17.0" prefWidth="92.0" text="Student ID" />
-      <Label alignment="CENTER" layoutX="32.0" layoutY="211.0" prefHeight="17.0" prefWidth="92.0" text="Room Type ID" />
-      <Label alignment="CENTER" layoutX="32.0" layoutY="254.0" prefHeight="17.0" prefWidth="92.0" text="Statas" />
+      <Label alignment="CENTER" layoutX="32.0" layoutY="86.0" prefHeight="17.0" prefWidth="92.0" text="Reservation ID :" />
+      <Label alignment="CENTER" layoutX="32.0" layoutY="127.0" prefHeight="17.0" prefWidth="92.0" text="Date :" />
+      <Label alignment="CENTER" layoutX="32.0" layoutY="167.0" prefHeight="17.0" prefWidth="92.0" text="Student ID :" />
+      <Label alignment="CENTER" layoutX="32.0" layoutY="211.0" prefHeight="17.0" prefWidth="92.0" text="Room Type ID :" />
+      <Label alignment="CENTER" layoutX="32.0" layoutY="254.0" prefHeight="17.0" prefWidth="92.0" text="Statas :" />
       <Label layoutX="292.0" layoutY="359.0" text="OR" />
       <Separator layoutX="42.0" layoutY="336.0" prefHeight="3.0" prefWidth="518.0" />
-      <TextField fx:id="txtSid" layoutX="143.0" layoutY="163.0" prefHeight="25.0" prefWidth="344.0" promptText="S00-001" />
-      <TextField fx:id="txtRid" layoutX="143.0" layoutY="207.0" prefHeight="25.0" prefWidth="344.0" promptText="RM-1324" />
+      <ComboBox fx:id="cmdSID" layoutX="143.0" layoutY="163.0" prefWidth="150.0" />
+      <ComboBox fx:id="cmdRid" layoutX="143.0" layoutY="207.0" prefWidth="150.0" />
+      <Label fx:id="txtREID" layoutX="143.0" layoutY="82.0" prefHeight="25.0" prefWidth="150.0" />
+      <Label layoutX="317.0" layoutY="82.0" prefHeight="25.0" prefWidth="92.0" text="Available Room:" />
+      <Label fx:id="lblQty" layoutX="409.0" layoutY="82.0" prefHeight="25.0" prefWidth="70.0" />
     </children>
 
 </AnchorPane>

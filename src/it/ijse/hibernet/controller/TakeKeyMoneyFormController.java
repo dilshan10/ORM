@@ -39,13 +39,25 @@ public class TakeKeyMoneyFormController {
     public ComboBox cmdSID;
     public ComboBox cmdRid;
     public Label txtREID;
+    public Label lblQty;
 
     ReservationBOImpl reservationBO = BOFactory.getInstance().getBO(BOType.RESERVATION);
 
     public void initialize(){
-
+        setNewID();
+        setAvaQty();
     }
 
+    public void setNewID(){
+        String newID = reservationBO.IdGenerator();
+        txtREID.setText(newID);
+    }
+
+    public void setAvaQty(){
+        String id = txtREID.getText();
+        String qty = reservationBO.setAvailableByID(id);
+        lblQty.setText(qty);
+    }
 
     public void navigate(MouseEvent mouseEvent) throws IOException {
         Parent root= FXMLLoader.load(this.getClass().getResource("../view/main-form.fxml"));
