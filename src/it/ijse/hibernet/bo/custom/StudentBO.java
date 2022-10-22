@@ -19,4 +19,6 @@ public interface StudentBO extends SuperBO {
     public List<Student> findAll() throws Exception;
 
     public List<Student> getID() throws Exception ;
+
+    public String IdGenerator();
 }

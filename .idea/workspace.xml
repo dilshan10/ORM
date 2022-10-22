@@ -3,12 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="6883a5de-9882-4eef-8517-4f89e0b155a7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ORM/it/ijse/hibernet/controller/RoomListFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ORM/it/ijse/hibernet/controller/RoomListFormController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ORM/it/ijse/hibernet/dao/custom/impl/ReservationDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ORM/it/ijse/hibernet/dao/custom/impl/ReservationDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ORM/it/ijse/hibernet/dao/custom/impl/RoomDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ORM/it/ijse/hibernet/dao/custom/impl/RoomDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/ijse/hibernet/controller/RoomListFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/ijse/hibernet/controller/RoomListFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/ijse/hibernet/dao/custom/impl/ReservationDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/ijse/hibernet/dao/custom/impl/ReservationDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/ijse/hibernet/dao/custom/impl/RoomDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/ijse/hibernet/dao/custom/impl/RoomDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/ijse/hibernet/bo/custom/StudentBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/ijse/hibernet/bo/custom/StudentBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/ijse/hibernet/bo/custom/impl/StudentBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/ijse/hibernet/bo/custom/impl/StudentBOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/ijse/hibernet/controller/RegisterFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/ijse/hibernet/controller/RegisterFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/ijse/hibernet/dao/custom/impl/StudentDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/ijse/hibernet/dao/custom/impl/StudentDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/ijse/hibernet/view/register-form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/ijse/hibernet/view/register-form.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +190,9 @@
       <workItem from="1656865605180" duration="3104000" />
       <workItem from="1656872400661" duration="533000" />
       <workItem from="1666125461190" duration="163000" />
-      <workItem from="1666193178649" duration="14261000" />
+      <workItem from="1666193178649" duration="14601000" />
+      <workItem from="1666270042885" duration="1834000" />
+      <workItem from="1666452695726" duration="1562000" />
     </task>
     <servers />
   </component>

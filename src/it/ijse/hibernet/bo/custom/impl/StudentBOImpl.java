@@ -58,4 +58,9 @@ public class StudentBOImpl implements StudentBO {
     public ObservableList<Student> getID() throws Exception {
         return studentDAO.getID();
     }
+
+    @Override
+    public String IdGenerator() {
+        return studentDAO.IdGenerator();
+    }
 }

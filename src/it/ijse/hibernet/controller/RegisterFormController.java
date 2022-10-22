@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -26,17 +27,22 @@ import java.text.ParseException;
 
 public class RegisterFormController {
     public AnchorPane root;
-    public TextField txtSID;
     public TextField txtSName;
     public TextField txtSAddress;
     public TextField txtNumber;
     public TextField txtDOB;
     public ComboBox cmdGendr;
+    public Label lblSID;
 
     StudentBOImpl studentBO = BOFactory.getInstance().getBO(BOType.STUDENT);
 
     public void initialize(){
         setGender();
+        setID();
+    }
+
+    public void setID(){
+        lblSID.setText(studentBO.IdGenerator());
     }
     public void setGender(){
         ObservableList<String> options = FXCollections.observableArrayList("Male","Female");
@@ -53,7 +59,7 @@ public class RegisterFormController {
 
     public void ClickOnNewStudentRegister(ActionEvent actionEvent) throws ParseException {
 
-        String Student_ID = txtSID.getText();
+        String Student_ID = lblSID.getText();
         String Name = txtSName.getText();
         String Address = txtSAddress.getText();
         String Contact_no = txtNumber.getText();
@@ -74,7 +80,6 @@ public class RegisterFormController {
     }
 
     private void clearFields() {
-        txtSID.clear();
         txtSName.clear();
         txtSAddress.clear();
         txtNumber.clear();

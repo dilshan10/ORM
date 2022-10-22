@@ -30,12 +30,12 @@
       <Label alignment="CENTER" layoutX="278.0" layoutY="300.0" prefHeight="17.0" prefWidth="96.0" text="Gender" />
       <Label alignment="CENTER" layoutX="79.0" layoutY="300.0" prefHeight="17.0" prefWidth="96.0" text="Date Of Brith" />
       <Button layoutX="164.0" layoutY="361.0" mnemonicParsing="false" onAction="#ClickOnNewStudentRegister" style="-fx-background-color: blue;" text="Register new Student" textFill="WHITE" />
-      <TextField fx:id="txtSID" layoutX="79.0" layoutY="94.0" prefHeight="25.0" prefWidth="443.0" promptText="S00-001" />
       <TextField fx:id="txtSName" layoutX="79.0" layoutY="151.0" prefHeight="25.0" prefWidth="443.0" promptText="N.D Chathuranga Dilshan" />
       <TextField fx:id="txtSAddress" layoutX="79.0" layoutY="210.0" prefHeight="25.0" prefWidth="443.0" promptText="Beruwala" />
       <TextField fx:id="txtNumber" layoutX="79.0" layoutY="270.0" prefHeight="25.0" prefWidth="228.0" promptText="0754313114" />
       <TextField fx:id="txtDOB" layoutX="79.0" layoutY="321.0" promptText="2001/10/25" />
       <ComboBox fx:id="cmdGendr" layoutX="307.0" layoutY="321.0" prefWidth="150.0" />
       <Button layoutX="310.0" layoutY="361.0" mnemonicParsing="false" onAction="#ClickOnStyudentList" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: blue;" text="Student List" textFill="WHITE" />
+      <Label fx:id="lblSID" layoutX="79.0" layoutY="94.0" prefHeight="25.0" prefWidth="443.0" />
    </children>
 </AnchorPane>

@@ -73,7 +73,7 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public String IdGenerator() {
-        return null;
+        return "S00-002";
     }
 
     public ObservableList<Student> getID() throws Exception{
