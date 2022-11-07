@@ -10,28 +10,33 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 public class ReservationUpdateDeleteFormController {
-    public TextField txtSearch;
     public TextField txtreID;
     public TextField txtDate;
     public TextField txtsID;
     public TextField txtRid;
     public TextField txtStatus;
     public AnchorPane root;
+    public ComboBox cmdSearch;
 
     ReservationBOImpl reservationBO = BOFactory.getInstance().getBO(BOType.RESERVATION);
 
+    public void initialize(){
+        setResId();
+    }
 
+    private void setResId(){
+        cmdSearch.setItems(reservationBO.getAllID());
+    }
 
     public void navigate(MouseEvent mouseEvent) throws IOException {
         Parent root= FXMLLoader.load(this.getClass().getResource("../view/main-form.fxml"));
@@ -62,18 +67,35 @@ public class ReservationUpdateDeleteFormController {
     }
 
     private void clearFields() {
+        txtreID.clear();
+        txtDate.clear();
+        txtsID.clear();
+        txtRid.clear();
+        txtStatus.clear();
     }
 
     public void ClickOnDeleteOnAction(ActionEvent actionEvent) throws Exception {
-        reservationBO.delete(txtSearch.getText());
+        reservationBO.delete(String.valueOf(cmdSearch.getValue()));
     }
 
     public void ClickSearchOnAction(ActionEvent actionEvent) throws Exception {
-        Reservation reservation = reservationBO.find(txtSearch.getText());
+        String id = String.valueOf(cmdSearch.getValue());
+        search(id);
+    }
+    private void search(String id) throws Exception {
+        Reservation reservation = reservationBO.find(id);
         txtreID.setText(reservation.getRes_id());
         txtDate.setText(reservation.getDATE());
         txtsID.setText(reservation.getStudent_id());
         txtRid.setText(reservation.getRoom_type_id());
         txtStatus.setText(reservation.getStatus());
+    }
+
+    public void clickOnBack(ActionEvent actionEvent) throws IOException {
+        Parent root= FXMLLoader.load(this.getClass().getResource("../view/takeKeyMoney-form.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) this.root.getScene().getWindow();
+        stage.setScene(scene);
+        stage.centerOnScreen();
     }
 }

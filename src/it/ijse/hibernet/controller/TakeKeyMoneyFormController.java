@@ -1,17 +1,11 @@
 package it.ijse.hibernet.controller;
 
-import it.ijse.hibernet.AppInitializer;
 import it.ijse.hibernet.bo.BOFactory;
 import it.ijse.hibernet.bo.BOType;
 import it.ijse.hibernet.bo.custom.impl.ReservationBOImpl;
 import it.ijse.hibernet.bo.custom.impl.RoomBOImpl;
 import it.ijse.hibernet.bo.custom.impl.StudentBOImpl;
 import it.ijse.hibernet.dto.ReservationDTO;
-import it.ijse.hibernet.dto.StudentDTO;
-import it.ijse.hibernet.entty.Reservation;
-import it.ijse.hibernet.entty.Room;
-import it.ijse.hibernet.entty.Student;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -25,10 +19,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.List;
 
 public class TakeKeyMoneyFormController {
     public AnchorPane root;
@@ -42,21 +33,54 @@ public class TakeKeyMoneyFormController {
     public Label lblQty;
 
     ReservationBOImpl reservationBO = BOFactory.getInstance().getBO(BOType.RESERVATION);
+    StudentBOImpl studentBO = BOFactory.getInstance().getBO(BOType.STUDENT);
+    RoomBOImpl roomBO = BOFactory.getInstance().getBO(BOType.ROOM);
 
     public void initialize(){
         setNewID();
         setAvaQty();
+        loadAllStudentId();
+        loadAllRoomId();
+        setDate();
     }
 
-    public void setNewID(){
+    private void setNewID(){
         String newID = reservationBO.IdGenerator();
         txtREID.setText(newID);
     }
 
-    public void setAvaQty(){
+    private void setAvaQty(){
         //String id = txtREID.getText();
         //Integer qty = reservationBO.setAvailableByID(id);
         lblQty.setText(String.valueOf(10));
+    }
+
+    private void loadAllStudentId(){
+        try {
+            cmdSID.setItems(studentBO.getID());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadAllRoomId(){
+        try {
+            cmdRid.setItems(roomBO.getID());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void setDefualVal(){
+        setNewID();
+        cmdSID.getItems().clear();
+        cmdRid.getItems().clear();
+        txtStatus.clear();
+        lblQty.setText("");
+    }
+
+    private void setDate(){
+        txtREDate.setText("2022/11/06");
     }
 
     public void navigate(MouseEvent mouseEvent) throws IOException {
@@ -70,8 +94,8 @@ public class TakeKeyMoneyFormController {
     public void ClickAddReservationOnAction(ActionEvent actionEvent) throws ParseException {
         String Rid = txtREID.getText();
         String date = txtREDate.getText();
-        String sid = txtSid.getText();
-        String rid = txtRid.getText();
+        String sid = String.valueOf(cmdSID.getValue());
+        String rid = String.valueOf(cmdRid.getValue());
         String ststus = txtStatus.getText();
 
         try {
@@ -85,6 +109,7 @@ public class TakeKeyMoneyFormController {
             System.out.println(e);
             new Alert(Alert.AlertType.ERROR, "Something Happened").show();
         }
+        setDefualVal();
     }
 
     public void ClickOnList(ActionEvent actionEvent) throws IOException {

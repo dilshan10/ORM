@@ -3,7 +3,6 @@ package it.ijse.hibernet.dao.custom.impl;
 import it.ijse.hibernet.dao.custom.ReservationDAO;
 import it.ijse.hibernet.entty.Reservation;
 import it.ijse.hibernet.entty.Room;
-import it.ijse.hibernet.entty.Student;
 import it.ijse.hibernet.util.FactoryConfiguration;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -91,12 +90,12 @@ public class ReservationDAOImpl implements ReservationDAO {
         }
     }
 
-    public ObservableList getAllStudentID(){
+    public ObservableList<Reservation> getAllID(){
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        Query query = session.createQuery("SELECT student_ID FROM Student");
-        ObservableList list = (ObservableList) query.list();
+        Query query = session.createSQLQuery("SELECT res_id FROM Reservation ");
+        ObservableList<Reservation> list =FXCollections.observableArrayList( query.list());
 
         transaction.commit();
         session.close();

@@ -47,4 +47,10 @@ public class UserBOImpl implements UserBO {
     public ObservableList<User> findAll() throws Exception {
         return userDAO.findAll();
     }
+    public List<User> findUserByName(String name){
+        return userDAO.findUserByName(name);
+    }
+    public String IdGenerator(){
+        return userDAO.IdGenerator();
+    }
 }

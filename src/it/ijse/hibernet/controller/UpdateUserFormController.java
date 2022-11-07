@@ -4,8 +4,6 @@ import it.ijse.hibernet.bo.BOFactory;
 import it.ijse.hibernet.bo.BOType;
 import it.ijse.hibernet.bo.custom.impl.UserBOImpl;
 import it.ijse.hibernet.dto.UserDTO;
-import it.ijse.hibernet.entty.User;
-import it.ijse.hibernet.util.FactoryConfiguration;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,8 +13,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import java.io.IOException;
 
@@ -28,6 +24,14 @@ public class UpdateUserFormController {
     public TextField txtRePass;
 
     UserBOImpl userBO = BOFactory.getInstance().getBO(BOType.USER);
+
+    public void initialize(){
+        setNewId();
+    }
+
+    public void setNewId(){
+        txtUserID.setText(userBO.IdGenerator());
+    }
 
     public void navigate(MouseEvent mouseEvent) throws IOException {
         Parent root= FXMLLoader.load(this.getClass().getResource("../view/main-form.fxml"));

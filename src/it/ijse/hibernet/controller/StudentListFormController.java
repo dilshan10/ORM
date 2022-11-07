@@ -4,6 +4,8 @@ import it.ijse.hibernet.bo.BOFactory;
 import it.ijse.hibernet.bo.BOType;
 import it.ijse.hibernet.bo.custom.impl.StudentBOImpl;
 import it.ijse.hibernet.entty.Student;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -28,20 +30,36 @@ public class StudentListFormController {
     public TableColumn tblDOB;
     public TableColumn tblGender;
 
+    private ObservableList<Student> obList = null;
+
     StudentBOImpl studentBO = BOFactory.getInstance().getBO(BOType.STUDENT);
 
     public void initialize() throws Exception {
-        tblID.setCellValueFactory(new PropertyValueFactory<Student, Long>("student_ID"));
-        tblName.setCellValueFactory(new PropertyValueFactory<Student, Long>("name"));
-        tblAddres.setCellValueFactory(new PropertyValueFactory<Student, Long>("address"));
-        tblContactNu.setCellValueFactory(new PropertyValueFactory<Student, Long>("contact_no"));
-        tblDOB.setCellValueFactory(new PropertyValueFactory<Student, Long>("dob"));
-        tblGender.setCellValueFactory(new PropertyValueFactory<Student, Long>("gender"));
+        tblID.setCellValueFactory(new PropertyValueFactory<>("student_ID"));
+        tblName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tblAddres.setCellValueFactory(new PropertyValueFactory<>("address"));
+        tblContactNu.setCellValueFactory(new PropertyValueFactory<>("contact_no"));
+        tblDOB.setCellValueFactory(new PropertyValueFactory<>("dob"));
+        tblGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
 
-        tblStudent.getItems().addAll(studentBO.findAll());
+        loadAllStudents();
     }
 
-        public void navigate(MouseEvent mouseEvent) throws IOException {
+    private void loadAllStudents() {
+        List<Student> allStudents = null;
+            try {
+                allStudents = studentBO.findAll();
+                obList = FXCollections.observableArrayList(allStudents);
+                tblStudent.setItems(obList);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+    }
+
+    public void navigate(MouseEvent mouseEvent) throws IOException {
         Parent root= FXMLLoader.load(this.getClass().getResource("../view/main-form.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) this.root.getScene().getWindow();

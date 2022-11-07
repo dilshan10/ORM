@@ -7,10 +7,7 @@ import it.ijse.hibernet.dao.DAOType;
 import it.ijse.hibernet.dao.custom.impl.ReservationDAOImpl;
 import it.ijse.hibernet.dto.ReservationDTO;
 import it.ijse.hibernet.entty.Reservation;
-import it.ijse.hibernet.entty.Room;
 import javafx.collections.ObservableList;
-
-import java.util.List;
 
 public class ReservationBOImpl implements ReservationBO {
 
@@ -53,8 +50,8 @@ public class ReservationBOImpl implements ReservationBO {
         return reservationDAO.findAll();
     }
 
-    public ObservableList getAllStudentID(){
-        return reservationDAO.getAllStudentID();
+    public ObservableList getAllID(){
+        return reservationDAO.getAllID();
     }
 
     public String IdGenerator(){

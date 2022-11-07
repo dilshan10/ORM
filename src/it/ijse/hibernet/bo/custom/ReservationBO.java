@@ -3,8 +3,6 @@ package it.ijse.hibernet.bo.custom;
 import it.ijse.hibernet.bo.SuperBO;
 import it.ijse.hibernet.dto.ReservationDTO;
 import it.ijse.hibernet.entty.Reservation;
-import it.ijse.hibernet.entty.Room;
-import it.ijse.hibernet.entty.Student;
 import javafx.collections.ObservableList;
 
 import java.util.List;
@@ -20,7 +18,7 @@ public interface ReservationBO extends SuperBO {
 
     public List<Reservation> findAll() throws Exception;
 
-    public ObservableList getAllStudentID();
+    public ObservableList getAllID();
 
     public String IdGenerator();
 

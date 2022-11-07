@@ -1,9 +1,7 @@
 package it.ijse.hibernet.dao.custom.impl;
 
 import it.ijse.hibernet.dao.custom.RoomDAO;
-import it.ijse.hibernet.entty.Reservation;
 import it.ijse.hibernet.entty.Room;
-import it.ijse.hibernet.entty.Student;
 import it.ijse.hibernet.util.FactoryConfiguration;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -87,7 +85,7 @@ public class RoomDAOImpl implements RoomDAO {
             return "RM00-001";
         }else {
             String id = String.valueOf(list.get(0));
-            Long resID = Long.parseLong(id.substring(4,id.length()));
+            Long resID = Long.parseLong(id.substring(5,id.length()));
             resID++;
             return "RM00-"+String.format("%03d", resID);
         }

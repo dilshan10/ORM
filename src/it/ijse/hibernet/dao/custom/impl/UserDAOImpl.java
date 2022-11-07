@@ -1,8 +1,6 @@
 package it.ijse.hibernet.dao.custom.impl;
 
 import it.ijse.hibernet.dao.custom.UserDAO;
-import it.ijse.hibernet.entty.Reservation;
-import it.ijse.hibernet.entty.Student;
 import it.ijse.hibernet.entty.User;
 import it.ijse.hibernet.util.FactoryConfiguration;
 import javafx.collections.FXCollections;
@@ -14,6 +12,7 @@ import org.hibernate.query.Query;
 import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
+
     public boolean add(User entity) throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -74,6 +73,39 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public String IdGenerator() {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("SELECT max (user_ID) FROM User");
+        List list = query.list();
+
+        transaction.commit();
+        session.close();
+
+        if (list.get(0) == null){
+            return "U00-001";
+        }else {
+            String id = String.valueOf(list.get(0));
+            Long resID = Long.parseLong(id.substring(4,id.length()));
+            resID++;
+            return "U00-"+String.format("%03d", resID);
+        }
+    }
+
+    public List<User> findUserByName(String name){
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+
+        String sql = "FROM User U WHERE U.user_Name = "+name ;
+        Query query = session.createQuery(sql);
+        List<User> list = query.list();
+
+        System.out.println(list);
+
+        transaction.commit();
+        session.close();
+
         return null;
     }
 }

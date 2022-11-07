@@ -1,7 +1,6 @@
 package it.ijse.hibernet.dao.custom.impl;
 
 import it.ijse.hibernet.dao.custom.StudentDAO;
-import it.ijse.hibernet.entty.Reservation;
 import it.ijse.hibernet.entty.Student;
 import it.ijse.hibernet.util.FactoryConfiguration;
 import javafx.collections.FXCollections;
@@ -73,7 +72,23 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public String IdGenerator() {
-        return "S00-002";
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("SELECT max (student_ID) FROM Student ");
+        List list = query.list();
+
+        transaction.commit();
+        session.close();
+
+        if (list.get(0) == null){
+            return "S00-001";
+        }else {
+            String id = String.valueOf(list.get(0));
+            Long resID = Long.parseLong(id.substring(4,id.length()));
+            resID++;
+            return "S00-"+String.format("%03d", resID);
+        }
     }
 
     public ObservableList<Student> getID() throws Exception{
@@ -87,4 +102,5 @@ public class StudentDAOImpl implements StudentDAO {
         session.close();
         return list;
     }
+
 }

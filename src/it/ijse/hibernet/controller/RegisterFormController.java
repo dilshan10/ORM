@@ -4,8 +4,6 @@ import it.ijse.hibernet.bo.BOFactory;
 import it.ijse.hibernet.bo.BOType;
 import it.ijse.hibernet.bo.custom.impl.StudentBOImpl;
 import it.ijse.hibernet.dto.StudentDTO;
-import it.ijse.hibernet.entty.Student;
-import it.ijse.hibernet.util.FactoryConfiguration;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,8 +17,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -77,6 +73,7 @@ public class RegisterFormController {
             System.out.println(e);
             new Alert(Alert.AlertType.ERROR, "Something Happened").show();
         }
+        clearFields();
     }
 
     private void clearFields() {
