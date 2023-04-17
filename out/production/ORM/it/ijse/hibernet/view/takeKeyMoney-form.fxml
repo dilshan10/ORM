@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.ijse.hibernet.controller.TakeKeyMoneyFormController">
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.ijse.hibernet.controller.TakeKeyMoneyFormController">
     <children>
         <Label alignment="CENTER" layoutX="212.0" layoutY="6.0" text="D24 HOSTEL" textFill="RED">
             <font>
@@ -36,7 +36,7 @@
       <Label layoutX="292.0" layoutY="359.0" text="OR" />
       <Separator layoutX="42.0" layoutY="336.0" prefHeight="3.0" prefWidth="518.0" />
       <ComboBox fx:id="cmdSID" layoutX="143.0" layoutY="163.0" prefWidth="150.0" />
-      <ComboBox fx:id="cmdRid" layoutX="143.0" layoutY="207.0" prefWidth="150.0" />
+      <ComboBox fx:id="cmdRid" layoutX="143.0" layoutY="207.0" onAction="#setQtyOnAction" prefWidth="150.0" />
       <Label fx:id="txtREID" layoutX="143.0" layoutY="82.0" prefHeight="25.0" prefWidth="150.0" />
       <Label layoutX="356.0" layoutY="207.0" prefHeight="25.0" prefWidth="92.0" text="Available Room:" />
       <Label fx:id="lblQty" layoutX="462.0" layoutY="207.0" prefHeight="25.0" prefWidth="70.0" />

@@ -32,6 +32,9 @@ public class ReservationListFormController {
 
     public void initialize() throws Exception {
         tblReservation.getItems().addAll(reservationBO.findAll());
+
+        System.out.println(reservationBO.findAll());
+
         tblRId.setCellValueFactory(new PropertyValueFactory<Student, Long>("res_id"));
         tblRDate.setCellValueFactory(new PropertyValueFactory<Student, Long>("DATE"));
         tblStudentId.setCellValueFactory(new PropertyValueFactory<Student, Long>("student_id"));

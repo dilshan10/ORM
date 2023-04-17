@@ -35,12 +35,12 @@ public class StudentListFormController {
     StudentBOImpl studentBO = BOFactory.getInstance().getBO(BOType.STUDENT);
 
     public void initialize() throws Exception {
-        tblID.setCellValueFactory(new PropertyValueFactory<>("student_ID"));
-        tblName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        tblAddres.setCellValueFactory(new PropertyValueFactory<>("address"));
-        tblContactNu.setCellValueFactory(new PropertyValueFactory<>("contact_no"));
-        tblDOB.setCellValueFactory(new PropertyValueFactory<>("dob"));
-        tblGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        tblID.setCellValueFactory(new PropertyValueFactory<Student, Long>("student_ID"));
+        tblName.setCellValueFactory(new PropertyValueFactory<Student, Long>("name"));
+        tblAddres.setCellValueFactory(new PropertyValueFactory<Student, Long>("address"));
+        tblContactNu.setCellValueFactory(new PropertyValueFactory<Student, Long>("contact_no"));
+        tblDOB.setCellValueFactory(new PropertyValueFactory<Student, Long>("dob"));
+        tblGender.setCellValueFactory(new PropertyValueFactory<Student, Long>("gender"));
 
         loadAllStudents();
     }

@@ -6,6 +6,7 @@ import it.ijse.hibernet.bo.custom.impl.ReservationBOImpl;
 import it.ijse.hibernet.bo.custom.impl.RoomBOImpl;
 import it.ijse.hibernet.bo.custom.impl.StudentBOImpl;
 import it.ijse.hibernet.dto.ReservationDTO;
+import it.ijse.hibernet.entty.Room;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -38,7 +39,6 @@ public class TakeKeyMoneyFormController {
 
     public void initialize(){
         setNewID();
-        setAvaQty();
         loadAllStudentId();
         loadAllRoomId();
         setDate();
@@ -50,9 +50,17 @@ public class TakeKeyMoneyFormController {
     }
 
     private void setAvaQty(){
-        //String id = txtREID.getText();
+        String id = (String) cmdRid.getValue();
+
+        try {
+            Room room = roomBO.find(id);
+            lblQty.setText(String.valueOf(room.getQTY()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         //Integer qty = reservationBO.setAvailableByID(id);
-        lblQty.setText(String.valueOf(10));
+
     }
 
     private void loadAllStudentId(){
@@ -73,8 +81,6 @@ public class TakeKeyMoneyFormController {
 
     private void setDefualVal(){
         setNewID();
-        cmdSID.getItems().clear();
-        cmdRid.getItems().clear();
         txtStatus.clear();
         lblQty.setText("");
     }
@@ -126,5 +132,9 @@ public class TakeKeyMoneyFormController {
         Stage stage = (Stage) this.root.getScene().getWindow();
         stage.setScene(scene);
         stage.centerOnScreen();
+    }
+
+    public void setQtyOnAction(ActionEvent actionEvent) {
+        setAvaQty();
     }
 }

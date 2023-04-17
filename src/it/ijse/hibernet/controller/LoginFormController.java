@@ -25,7 +25,7 @@ public class LoginFormController {
 
         User user = userBO.find("U00-001");
 
-        if (user.getUser_Name().equals(username.getText()) || user.getPassword().equals(password.getText())) {
+        if (user.getUser_Name().equals(username.getText()) && user.getPassword().equals(password.getText())) {
             Parent parent = FXMLLoader.load(getClass().getResource("../view/main-form.fxml"));
             Scene subScene = new Scene(parent);
             Stage primaryStage = (Stage) this.root.getScene().getWindow();

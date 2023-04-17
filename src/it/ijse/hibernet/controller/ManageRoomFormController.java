@@ -4,33 +4,38 @@ import it.ijse.hibernet.bo.BOFactory;
 import it.ijse.hibernet.bo.BOType;
 import it.ijse.hibernet.bo.custom.impl.RoomBOImpl;
 import it.ijse.hibernet.dto.RoomDTO;
-import it.ijse.hibernet.entty.Room;
-import it.ijse.hibernet.util.FactoryConfiguration;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import java.io.IOException;
 
 public class ManageRoomFormController {
     public AnchorPane root;
     public TextField txtRoomID;
-    public TextField txtRoomType;
     public TextField txtKeyMoney;
     public TextField txtRoomQty;
+    public ComboBox cmdRoomType;
 
     RoomBOImpl roomBO = BOFactory.getInstance().getBO(BOType.ROOM);
 
     public void initialize(){
         setNewId();
+        setRoomTypeValues();
+    }
+
+    private void setRoomTypeValues() {
+        ObservableList<String> data = FXCollections.observableArrayList("AC","NON AC", "AC/FOOD", "NON AC /FOOD");
+        cmdRoomType.setItems(data);
     }
 
     public void setNewId(){
@@ -48,7 +53,7 @@ public class ManageRoomFormController {
     public void ClickSaveOnAction(ActionEvent actionEvent) {
 
         String Room_type_ID = txtRoomID.getText();
-        String Type = txtRoomType.getText();
+        String Type = (String) cmdRoomType.getValue();
         double KeyMoney = Double.parseDouble(txtKeyMoney.getText());
         int QTY = Integer.parseInt(txtRoomQty.getText());
 
@@ -56,6 +61,7 @@ public class ManageRoomFormController {
             if (roomBO.add(new RoomDTO(Room_type_ID,Type,KeyMoney,QTY))){
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved.!").show();
                 clearFields();
+                setNewId();
             }else {
                 new Alert(Alert.AlertType.ERROR, "Something Happened").show();
             }
@@ -67,7 +73,7 @@ public class ManageRoomFormController {
 
     private void clearFields() {
         txtRoomID.clear();
-        txtRoomType.clear();
+        cmdRoomType.setValue("AC, NON AC, AC/FOOD, NON AC /FOOD");
         txtKeyMoney.clear();
         txtRoomQty.clear();
     }

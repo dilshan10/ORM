@@ -2,7 +2,6 @@ package it.ijse.hibernet.bo.custom;
 
 import it.ijse.hibernet.bo.SuperBO;
 import it.ijse.hibernet.dto.StudentDTO;
-import it.ijse.hibernet.entty.Room;
 import it.ijse.hibernet.entty.Student;
 
 import java.util.List;
