@@ -3,7 +3,6 @@ package it.ijse.hibernet.bo.custom;
 import it.ijse.hibernet.bo.SuperBO;
 import it.ijse.hibernet.dto.RoomDTO;
 import it.ijse.hibernet.entty.Room;
-import it.ijse.hibernet.entty.Student;
 
 import java.util.List;
 
@@ -21,4 +20,6 @@ public interface RoomBO extends SuperBO {
     public List<Room> getID() throws Exception;
 
     public String IdGenerator();
+
+    public boolean updateRoomQty(int newQty,String id);
 }

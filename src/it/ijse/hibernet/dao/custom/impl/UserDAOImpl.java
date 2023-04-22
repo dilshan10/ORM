@@ -3,12 +3,13 @@ package it.ijse.hibernet.dao.custom.impl;
 import it.ijse.hibernet.dao.custom.UserDAO;
 import it.ijse.hibernet.entty.User;
 import it.ijse.hibernet.util.FactoryConfiguration;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
@@ -59,16 +60,18 @@ public class UserDAOImpl implements UserDAO {
         return user;
     }
 
-    public ObservableList<User> findAll() throws Exception {
+    public List<User> findAll() throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction=session.beginTransaction();
+        Transaction transaction = session.beginTransaction();
 
-        Query query = session.createSQLQuery("SELECT * FROM user");
-        ObservableList<User> list = FXCollections.observableArrayList(query.list());
+        Criteria criteria = session.createCriteria(User.class);
+        List users = criteria.list();
+
+        ArrayList<User> allUsers = new ArrayList<>(users);
 
         transaction.commit();
         session.close();
-        return list;
+        return allUsers;
     }
 
     @Override
@@ -90,6 +93,11 @@ public class UserDAOImpl implements UserDAO {
             resID++;
             return "U00-"+String.format("%03d", resID);
         }
+    }
+
+    @Override
+    public ObservableList<User> getAllID() {
+        return null;
     }
 
     public List<User> findUserByName(String name){

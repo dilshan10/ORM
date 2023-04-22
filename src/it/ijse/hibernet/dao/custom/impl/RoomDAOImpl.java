@@ -5,10 +5,12 @@ import it.ijse.hibernet.entty.Room;
 import it.ijse.hibernet.util.FactoryConfiguration;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RoomDAOImpl implements RoomDAO {
@@ -60,14 +62,16 @@ public class RoomDAOImpl implements RoomDAO {
 
     public List<Room> findAll() throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction=session.beginTransaction();
+        Transaction transaction = session.beginTransaction();
 
-        Query query = session.createSQLQuery("SELECT * FROM room");
-        List<Room> list = query.list();
+        Criteria criteria = session.createCriteria(Room.class);
+        List rooms = criteria.list();
+
+        ArrayList<Room> allRoom = new ArrayList<>(rooms);
 
         transaction.commit();
         session.close();
-        return list;
+        return allRoom;
     }
 
     @Override
@@ -91,6 +95,11 @@ public class RoomDAOImpl implements RoomDAO {
         }
     }
 
+    @Override
+    public ObservableList<Room> getAllID() {
+        return null;
+    }
+
     public ObservableList<Room> getID() throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction=session.beginTransaction();
@@ -101,5 +110,19 @@ public class RoomDAOImpl implements RoomDAO {
         transaction.commit();
         session.close();
         return list;
+    }
+
+    public boolean updateRoomQty(int newQTY,String id){
+        System.out.println(newQTY);
+        System.out.println(id);
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createSQLQuery("UPDATE Room set Qty=:newQTY where room_type_ID=:id");
+
+
+        transaction.commit();
+        session.close();
+        return true;
     }
 }

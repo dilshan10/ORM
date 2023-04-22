@@ -9,6 +9,8 @@ import it.ijse.hibernet.dto.ReservationDTO;
 import it.ijse.hibernet.entty.Reservation;
 import javafx.collections.ObservableList;
 
+import java.util.List;
+
 public class ReservationBOImpl implements ReservationBO {
 
     ReservationDAOImpl reservationDAO = DAOFactory.getInstance().getDAO(DAOType.RESERVATION);
@@ -46,7 +48,7 @@ public class ReservationBOImpl implements ReservationBO {
     }
 
     @Override
-    public ObservableList<Reservation> findAll() throws Exception {
+    public List<Reservation> findAll() throws Exception {
         return reservationDAO.findAll();
     }
 
@@ -58,7 +60,9 @@ public class ReservationBOImpl implements ReservationBO {
         return reservationDAO.IdGenerator();
     }
 
-    public Integer setAvailableByID(String id){
-        return reservationDAO.setAvailableByID(id);
+    @Override
+    public Integer setAvailableByID(String id) {
+        return null;
     }
+
 }

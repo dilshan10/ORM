@@ -5,10 +5,12 @@ import it.ijse.hibernet.entty.Student;
 import it.ijse.hibernet.util.FactoryConfiguration;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDAOImpl implements StudentDAO {
@@ -60,14 +62,16 @@ public class StudentDAOImpl implements StudentDAO {
 
     public List<Student> findAll() throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction=session.beginTransaction();
+        Transaction transaction = session.beginTransaction();
 
-        Query query = session.createSQLQuery("SELECT * FROM student");
-        List<Student> list = query.list();
+        Criteria criteria = session.createCriteria(Student.class);
+        List students = criteria.list();
+
+        ArrayList<Student> allStudents = new ArrayList<>(students);
 
         transaction.commit();
         session.close();
-        return list;
+        return allStudents;
     }
 
     @Override
@@ -89,6 +93,11 @@ public class StudentDAOImpl implements StudentDAO {
             resID++;
             return "S00-"+String.format("%03d", resID);
         }
+    }
+
+    @Override
+    public ObservableList<Student> getAllID() {
+        return null;
     }
 
     public ObservableList<Student> getID() throws Exception{

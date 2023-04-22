@@ -7,6 +7,9 @@ import it.ijse.hibernet.bo.custom.impl.RoomBOImpl;
 import it.ijse.hibernet.bo.custom.impl.StudentBOImpl;
 import it.ijse.hibernet.dto.ReservationDTO;
 import it.ijse.hibernet.entty.Room;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,9 +21,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.time.LocalDate;
 
 public class TakeKeyMoneyFormController {
     public AnchorPane root;
@@ -86,7 +91,56 @@ public class TakeKeyMoneyFormController {
     }
 
     private void setDate(){
-        txtREDate.setText("2022/11/06");
+        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
+            LocalDate currentDate = LocalDate.now();
+
+            String month = "";
+            switch (currentDate.getMonthValue()) {
+                case 1:
+                    month = "Jan";
+                    break;
+                case 2:
+                    month = "Feb";
+                    break;
+                case 3:
+                    month = "March";
+                    break;
+                case 4:
+                    month = "April";
+                    break;
+                case 5:
+                    month = "May";
+                    break;
+                case 6:
+                    month = "June";
+                    break;
+                case 7:
+                    month = "July";
+                    break;
+                case 8:
+                    month = "August";
+                    break;
+                case 9:
+                    month = "Sep";
+                    break;
+                case 10:
+                    month = "Oct";
+                    break;
+                case 11:
+                    month = "Nov";
+                    break;
+                case 12:
+                    month = "Dec";
+                    break;
+            }
+            txtREDate.setText(currentDate.getYear() + "-" + month + "-" + currentDate.getDayOfMonth());
+
+
+        }),
+                 new KeyFrame(Duration.seconds(1))
+        );
+        clock.setCycleCount(Animation.INDEFINITE);
+        clock.play();
     }
 
     public void navigate(MouseEvent mouseEvent) throws IOException {
@@ -103,13 +157,17 @@ public class TakeKeyMoneyFormController {
         String sid = String.valueOf(cmdSID.getValue());
         String rid = String.valueOf(cmdRid.getValue());
         String ststus = txtStatus.getText();
+        int qty = Integer.parseInt(lblQty.getText());
+
+        int newQty = qty-1;
 
         try {
-            if (reservationBO.add(new ReservationDTO(Rid,date,sid,rid,ststus))){
+            if (reservationBO.add(new ReservationDTO(Rid, date, sid, rid, ststus))){
+                roomBO.updateRoomQty(newQty,rid);
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved.!").show();
-                //clearFields();
-            }else {
+            } else {
                 new Alert(Alert.AlertType.ERROR, "Something Happened").show();
+                //clearFields();
             }
         } catch (Exception e) {
             System.out.println(e);

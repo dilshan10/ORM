@@ -60,5 +60,9 @@ public class RoomBOImpl implements RoomBO {
         return roomDAO.IdGenerator();
     }
 
+    @Override
+    public boolean updateRoomQty(int newQty,String id) {
+        return roomDAO.updateRoomQty(newQty,id);
+    }
 
 }

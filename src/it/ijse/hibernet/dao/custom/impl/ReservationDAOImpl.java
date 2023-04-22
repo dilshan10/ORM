@@ -2,14 +2,15 @@ package it.ijse.hibernet.dao.custom.impl;
 
 import it.ijse.hibernet.dao.custom.ReservationDAO;
 import it.ijse.hibernet.entty.Reservation;
-import it.ijse.hibernet.entty.Room;
 import it.ijse.hibernet.util.FactoryConfiguration;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReservationDAOImpl implements ReservationDAO {
@@ -59,16 +60,18 @@ public class ReservationDAOImpl implements ReservationDAO {
         return reservation;
     }
 
-    public ObservableList<Reservation> findAll() throws Exception {
+    public List<Reservation> findAll() throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction=session.beginTransaction();
+        Transaction transaction = session.beginTransaction();
 
-        Query query = session.createSQLQuery("SELECT * FROM reservation");
-        ObservableList<Reservation> list = FXCollections.observableArrayList(query.list());
+        Criteria criteria = session.createCriteria(Reservation.class);
+        List reservations = criteria.list();
+
+        ArrayList<Reservation> allReservations = new ArrayList<>(reservations);
 
         transaction.commit();
         session.close();
-        return list;
+        return allReservations;
     }
     public String IdGenerator(){
         Session session =FactoryConfiguration.getInstance().getSession();
@@ -103,15 +106,4 @@ public class ReservationDAOImpl implements ReservationDAO {
         return list;
     }
 
-    public Integer setAvailableByID(String Id){
-        Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-
-        Room room = session.get(Room.class, Id);
-
-        transaction.commit();
-        session.close();
-
-        return room.getQTY();
-    }
 }

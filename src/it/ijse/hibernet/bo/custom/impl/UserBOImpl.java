@@ -7,7 +7,6 @@ import it.ijse.hibernet.dao.DAOType;
 import it.ijse.hibernet.dao.custom.impl.UserDAOImpl;
 import it.ijse.hibernet.dto.UserDTO;
 import it.ijse.hibernet.entty.User;
-import javafx.collections.ObservableList;
 
 import java.util.List;
 
@@ -44,7 +43,7 @@ public class UserBOImpl implements UserBO {
     }
 
     @Override
-    public ObservableList<User> findAll() throws Exception {
+    public List<User> findAll() throws Exception {
         return userDAO.findAll();
     }
     public List<User> findUserByName(String name){
