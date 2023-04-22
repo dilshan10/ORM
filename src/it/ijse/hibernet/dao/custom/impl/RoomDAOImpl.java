@@ -113,8 +113,6 @@ public class RoomDAOImpl implements RoomDAO {
     }
 
     public boolean updateRoomQty(int newQTY,String id){
-        System.out.println(newQTY);
-        System.out.println(id);
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 

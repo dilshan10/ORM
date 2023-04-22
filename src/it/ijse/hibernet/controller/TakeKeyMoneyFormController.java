@@ -159,21 +159,25 @@ public class TakeKeyMoneyFormController {
         String ststus = txtStatus.getText();
         int qty = Integer.parseInt(lblQty.getText());
 
-        int newQty = qty-1;
+        int newQty = qty - 1;
 
-        try {
-            if (reservationBO.add(new ReservationDTO(Rid, date, sid, rid, ststus))){
-                roomBO.updateRoomQty(newQty,rid);
-                new Alert(Alert.AlertType.CONFIRMATION, "Saved.!").show();
-            } else {
+        if (qty != 0) {
+            try {
+                if (reservationBO.add(new ReservationDTO(Rid, date, sid, rid, ststus))) {
+                    roomBO.updateRoomQty(newQty, rid);
+                    new Alert(Alert.AlertType.CONFIRMATION, "Saved.!").show();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Something Happened").show();
+                    //clearFields();
+                }
+            } catch (Exception e) {
+                System.out.println(e);
                 new Alert(Alert.AlertType.ERROR, "Something Happened").show();
-                //clearFields();
             }
-        } catch (Exception e) {
-            System.out.println(e);
-            new Alert(Alert.AlertType.ERROR, "Something Happened").show();
+            setDefualVal();
+        }else {
+            new Alert(Alert.AlertType.ERROR,"Room Not Available In This Type, Sorry..!").show();
         }
-        setDefualVal();
     }
 
     public void ClickOnList(ActionEvent actionEvent) throws IOException {

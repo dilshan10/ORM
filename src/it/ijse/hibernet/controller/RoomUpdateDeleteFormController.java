@@ -4,9 +4,7 @@ import it.ijse.hibernet.bo.BOFactory;
 import it.ijse.hibernet.bo.BOType;
 import it.ijse.hibernet.bo.custom.impl.RoomBOImpl;
 import it.ijse.hibernet.dto.RoomDTO;
-import it.ijse.hibernet.dto.StudentDTO;
 import it.ijse.hibernet.entty.Room;
-import it.ijse.hibernet.util.FactoryConfiguration;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,8 +15,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import java.io.IOException;
 
@@ -51,7 +47,12 @@ public class RoomUpdateDeleteFormController {
 
     public void ClickOnDeleteAction(ActionEvent actionEvent) {
         try {
-            roomBO.delete(txtSearch.getText());
+            if (roomBO.delete(txtSearch.getText())){
+                new Alert(Alert.AlertType.CONFIRMATION, "Deleted.!").show();
+                clearFields();
+            }else {
+                new Alert(Alert.AlertType.ERROR, "Something Happened.!").show();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

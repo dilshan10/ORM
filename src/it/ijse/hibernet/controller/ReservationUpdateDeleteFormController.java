@@ -75,7 +75,11 @@ public class ReservationUpdateDeleteFormController {
     }
 
     public void ClickOnDeleteOnAction(ActionEvent actionEvent) throws Exception {
-        reservationBO.delete(String.valueOf(cmdSearch.getValue()));
+        if(reservationBO.delete(String.valueOf(cmdSearch.getValue()))){
+            new Alert(Alert.AlertType.INFORMATION,"Reservation Deleted...").show();
+        }else {
+            new Alert(Alert.AlertType.ERROR, "Something Happened").show();
+        }
     }
 
     public void ClickSearchOnAction(ActionEvent actionEvent) throws Exception {
